@@ -1,0 +1,14 @@
+.bg-f1 {
+    background: linear-gradient(90deg, #e10600 0%, #15151e 100%);
+}
+.driver-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.driver-card .card-body {
+    padding-bottom: 10px;
+}
