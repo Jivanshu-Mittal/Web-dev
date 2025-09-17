@@ -1,21 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Layout container */
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 25%;
+      padding-right: 20px;
+    }
+
+    .sidebar h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .sidebar ul li a:hover {
+      color: #007BFF;
+    }
+
+    /* Main content */
+    .content {
+      width: 75%;
+    }
+
+    .content h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    /* Blog posts */
+    .posts {
+      display: flex;
+      gap: 20px;
+    }
+
+    .post {
+      background-color: #fff;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      flex: 1;
+    }
+
+    .post.full {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    /* Post headings */
+    .post h3 {
+      margin-top: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar,
+      .content {
+        width: 100%;
+      }
+
+      .posts {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>This is gona be a new fresh start😎✔😱<img src="desk.jpg" width="50" height="50" ></h1>
-    <p>this is a paragraph</p>
-    <img src="desk.jpg" alt="desk" width="200" height="200">
-    <a href="https://www.google.com">This is a link to google</a>
-    <video width="320" height="240" controls>
-        <source src="video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        <form action="https://www.w3schools.com">
-            <input type="submit" value="Go to W3Schools.com">
-        </form>
-      </video>
+  <!-- Header -->
+  <header>
+    <h1>My Blog</h1>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Categories</h2>
+      <ul>
+        <li><a href="#">Technology</a></li>
+        <li><a href="#">Health</a></li>
+        <li><a href="#">Lifestyle</a></li>
+        <li><a href="#">Travel</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main content -->
+    <main class="content">
+      <h2>Latest Posts</h2>
+      <div class="posts">
+        <div class="post">
+          <h3>Blog 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+        </div>
+        <div class="post">
+          <h3>Blog 2</h3>
+          <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="post full">
+        <h3>Blog 3</h3>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
