@@ -92,6 +92,29 @@
       margin-top: 0;
     }
 
+    /* Pagination */
+    .pagination {
+      display: flex;
+      list-style: none;
+      padding-left: 0;
+      gap: 4px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .pagination li a {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      color: #333;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .pagination li a:hover {
+      background: #007BFF;
+      color: white;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .container {
@@ -144,6 +167,17 @@
         <h3>Blog 3</h3>
         <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
       </div>
+      <!-- Pagination Start -->
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li><a href="#">&laquo;</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#" style="border:1px solid #007BFF; color:white; background:#007BFF;">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ul>
+      </nav>
+      <!-- Pagination End -->
     </main>
   </div>
 </body>
