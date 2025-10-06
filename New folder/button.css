@@ -1,0 +1,42 @@
+/* Center the button on the page */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f3f4f6;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.button-container {
+  text-align: center;
+}
+
+/* Responsive Button Styling */
+.responsive-btn {
+  background-color: #3498db;      /* Default color */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 80%;
+  max-width: 200px;              /* Keeps button from stretching too wide */
+}
+
+/* Hover Effect */
+.responsive-btn:hover {
+  background-color: #2ecc71;      /* Changes to green on hover */
+  transform: scale(1.05);         /* Slight zoom on hover */
+}
+
+/* Adjust padding and font size on smaller screens */
+@media (max-width: 480px) {
+  .responsive-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
