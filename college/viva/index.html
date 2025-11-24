@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <h2>Categories</h2>
+      <ul>
+        <li class="category-filter" data-category="all">All Products</li>
+        <li class="category-filter" data-category="electronics">Electronics</li>
+        <li class="category-filter" data-category="laptops">Laptops</li>
+        <li class="category-filter" data-category="clothing">Clothing</li>
+        <li class="category-filter" data-category="home">Home</li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <div class="product-card" data-category="electronics">
+        <img src="https://images.unsplash.com/photo-1511707267537-b85faf00021e?w=300&h=300&fit=crop" alt="Smartphone">
+        <h3>Smartphone Pro</h3>
+        <p>$799.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="electronics">
+        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=300&h=300&fit=crop" alt="Tablet">
+        <h3>Tablet Ultra</h3>
+        <p>$499.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="laptops">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=300&h=300&fit=crop" alt="Laptop">
+        <h3>UltraBook Pro 15"</h3>
+        <p>$1299.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="laptops">
+        <img src="https://images.unsplash.com/photo-1588872657840-790ff3bde172?w=300&h=300&fit=crop" alt="Gaming Laptop">
+        <h3>Gaming Beast RTX 4080</h3>
+        <p>$1999.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="laptops">
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=300&fit=crop" alt="Business Laptop">
+        <h3>BusinessPro 14"</h3>
+        <p>$899.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="laptops">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=300&h=300&fit=crop" alt="Laptop Workstation">
+        <h3>StudioMax Workstation</h3>
+        <p>$2499.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="clothing">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop" alt="T-Shirt">
+        <h3>Classic T-Shirt</h3>
+        <p>$29.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="home">
+        <img src="https://images.unsplash.com/photo-1565877257197-8f69c1d82a5e?w=300&h=300&fit=crop" alt="Desk Lamp">
+        <h3>LED Desk Lamp</h3>
+        <p>$59.99</p>
+        <button>Add to Cart</button>
+      </div>
+    </main>
+
+    <button id="theme-toggle">Switch to Dark</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

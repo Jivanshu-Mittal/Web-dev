@@ -1,0 +1,278 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background 0.5s, color 0.5s;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.light-mode {
+  background: #f0f0f0;
+  color: #333;
+}
+
+body.dark-mode {
+  background: #000;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background: #333;
+  color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 10px 0;
+}
+
+.category-filter {
+  cursor: pointer;
+  padding: 10px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.category-filter:hover {
+  background: #444;
+}
+
+.category-filter.active {
+  background: #007BFF;
+  font-weight: bold;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: all 0.3s ease;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card.show {
+  opacity: 1;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.product-card p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #007BFF;
+}
+
+.product-card button {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background 0.3s ease;
+}
+
+.product-card button:hover {
+  background: #0056b3;
+}
+
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: #0056b3;
+}
+
+/* Tablet/Medium screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 15px;
+    overflow-y: visible;
+  }
+
+  .sidebar h2 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar li {
+    padding: 0;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .category-filter {
+    padding: 8px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .main-content {
+    padding: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .product-card {
+    padding: 12px;
+  }
+
+  .product-card img {
+    height: 160px;
+  }
+
+  .product-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .product-card p {
+    font-size: 1rem;
+  }
+
+  .product-card button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  #theme-toggle {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 12px;
+  }
+
+  .sidebar h2 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .sidebar ul {
+    gap: 8px;
+  }
+
+  .sidebar li {
+    min-width: 100px;
+  }
+
+  .category-filter {
+    padding: 6px;
+    font-size: 0.85rem;
+  }
+
+  .main-content {
+    padding: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+  }
+
+  .product-card {
+    padding: 10px;
+  }
+
+  .product-card img {
+    height: 130px;
+  }
+
+  .product-card h3 {
+    font-size: 0.85rem;
+    margin: 8px 0;
+  }
+
+  .product-card p {
+    font-size: 0.9rem;
+  }
+
+  .product-card button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  #theme-toggle {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    bottom: 10px;
+    right: 10px;
+  }
+}
