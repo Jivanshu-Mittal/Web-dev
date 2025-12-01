@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Product Gallery</title>
+
+    <style>
+        /* ------------------ Base Styling ------------------ */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            transition: background 0.5s ease, color 0.5s ease;
+            background: #f7f7f7;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            min-height: 100vh;
+            padding: 20px;
+            background: #eee;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+            transition: background 0.5s ease, color 0.5s ease, transform 0.4s ease;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        /* Mobile Menu Button */
+        .menu-btn {
+            display: none;
+            font-size: 25px;
+            margin: 15px;
+            cursor: pointer;
+        }
+
+        /* Sidebar List */
+        .sidebar li {
+            margin: 15px 0;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .sidebar li:hover {
+            transform: translateX(5px);
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: 260px;
+            padding: 20px;
+            width: 100%;
+            transition: margin-left 0.4s ease;
+        }
+
+        /* Responsive Product Grid */
+        .product-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        @media (min-width: 1200px) { .product-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (min-width: 900px) and (max-width: 1199px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 600px) and (max-width: 899px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 599px) { .product-grid { grid-template-columns: repeat(1, 1fr); } }
+
+        /* Product Card */
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.4s, color 0.4s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+        }
+
+        /* Real Images */
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Responsive Button */
+        .card button {
+            padding: 12px;
+            width: 100%;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        .card button:hover {
+            background: #0056b3;
+            transform: scale(1.03);
+        }
+
+        .card button:active {
+            transform: scale(0.97);
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background: #111;
+            color: #fff;
+        }
+        .dark-mode .sidebar { background: #222; }
+        .dark-mode .card {
+            background: #222;
+            color: white;
+            border: 1px solid #555;
+            box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+        }
+        .dark-mode .toggle-btn {
+            background: white;
+            color: black;
+        }
+
+        /* Mobile Sidebar */
+        @media (max-width: 700px) {
+            .sidebar {
+                transform: translateX(-260px);
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            .menu-btn {
+                display: block;
+            }
+            .main {
+                margin-left: 0;
+            }
+        }
+
+        /* Toggle Button */
+        .toggle-btn {
+            margin-top: 30px;
+            padding: 12px;
+            width: 100%;
+            cursor: pointer;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Menu Button -->
+    <span class="menu-btn" onclick="toggleMenu()">☰ Menu</span>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li>Home</li>
+            <li>Products</li>
+            <li>Categories</li>
+            <li>Contact</li>
+        </ul>
+
+        <button class="toggle-btn" id="themeToggle">Switch to Dark</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <h1>Product Gallery</h1>
+
+        <div class="product-grid" id="productGrid"></div>
+    </div>
+
+    <script>
+        /* ------------------ PRODUCT DATA WITH REAL IMAGES ------------------ */
+        const products = [
+            { name: "Wireless Headphones", price: 59.99, img: "https://images.unsplash.com/photo-1518448021411-a0949270e569" },
+            { name: "Smart Watch", price: 89.99, img: "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b" },
+            { name: "Gaming Mouse", price: 35.00, img: "https://images.unsplash.com/photo-1587202372775-a5fc28a5d9aa" },
+            { name: "Sneakers", price: 75.50, img: "https://images.unsplash.com/photo-1606813902917-9c388d2a86eb" },
+            { name: "Backpack", price: 45.25, img: "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6" },
+            { name: "Sunglasses", price: 25.99, img: "https://images.unsplash.com/photo-1511497584788-876760111969" },
+            { name: "Camera Lens", price: 119.99, img: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" },
+            { name: "Perfume", price: 39.00, img: "https://images.unsplash.com/photo-1595433562696-a8b61e81a6d6" },
+            { name: "Sports Bottle", price: 14.99, img: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a" },
+            { name: "Bluetooth Speaker", price: 49.99, img: "https://images.unsplash.com/photo-1589003077984-8947a2a0b1d6" },
+            { name: "Keyboard", price: 65.00, img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8" },
+            { name: "Jacket", price: 120.00, img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246" }
+        ];
+
+        const grid = document.getElementById("productGrid");
+
+        grid.innerHTML = products.map(p => `
+            <div class="card">
+                <img src="${p.img}?w=600" alt="${p.name}">
+                <h3>${p.name}</h3>
+                <p>$${p.price.toFixed(2)}</p>
+                <button>Add to Cart</button>
+            </div>
+        `).join("");
+
+        /* ------------------ DARK MODE ------------------ */
+        const toggleBtn = document.getElementById("themeToggle");
+        const body = document.body;
+
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            body.classList.add("dark-mode");
+            toggleBtn.textContent = "Switch to Light";
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            if (body.classList.contains("dark-mode")) {
+                toggleBtn.textContent = "Switch to Light";
+                localStorage.setItem("theme", "dark");
+            } else {
+                toggleBtn.textContent = "Switch to Dark";
+                localStorage.setItem("theme", "light");
+            }
+        });
+
+        /* ------------------ MOBILE MENU ------------------ */
+        function toggleMenu() {
+            document.getElementById("sidebar").classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>
