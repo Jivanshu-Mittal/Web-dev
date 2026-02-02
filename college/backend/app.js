@@ -19,4 +19,4 @@ let p1 = new Promise((resolve, reject) => {
     // reject("promise completed")
 })
 
-console.log(p1);
+
