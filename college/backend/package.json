@@ -9,10 +9,10 @@
   "license": "ISC",
   "author": "Jivanshu",
   "type": "module",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "run",
-    "start": "node server.js"
+    "start": "node src/server.js"
   },
   "dependencies": {
     "express": "^5.2.1"

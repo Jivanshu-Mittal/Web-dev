@@ -20,12 +20,14 @@
     },
     "peacock.color": "#007fff",
     "background.editorBackgrounds": [
-        "c:/Users/Dell/Downloads/vs1.jpg"
+        "d:/Dell/images/vs2.jpg"
     ],
     "background.backgroundOpacity": [
         0.1,
         0.2,
         0.1,
         0.1
-    ]
+    ],
+    "background.sidebarBackgrounds": [],
+    "workbench.panel.defaultLocation": "left"
 }
