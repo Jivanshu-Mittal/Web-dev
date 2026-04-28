@@ -1,2 +1,0 @@
-==========================================This is the files for taking notes and self racking===================================================================
-it is common for both the folders in case in future they share anything.
