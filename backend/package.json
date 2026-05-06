@@ -8,13 +8,16 @@
   },
   "license": "ISC",
   "author": "Jivanshu",
-  "type": "module",
+  "type": "commonjs",
   "main": "src/server.js",
   "scripts": {
     "test": "run",
     "start": "node src/server.js"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.6.0",
+    "nodemon": "^3.1.14"
   }
 }

@@ -1,1 +1,8 @@
 *.env
+image/
+node_modules/
+dist/
+coverage/
+logs/
+*.log
+*.pid

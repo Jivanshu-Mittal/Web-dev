@@ -19,9 +19,7 @@
         "titleBar.inactiveForeground": "#e7e7e799"
     },
     "peacock.color": "#007fff",
-    "background.editorBackgrounds": [
-        "d:/Dell/images/vs2.jpg"
-    ],
+    "background.editorBackgrounds": [],
     "background.backgroundOpacity": [
         0.1,
         0.2,
